@@ -429,9 +429,9 @@ singer-python = "5.9.0"
 
 [package.source]
 type = "git"
-url = "https://gitlab.com/edgarrmondragon/singer-sdk"
-reference = "build-backend-api"
-resolved_reference = "cc5082c07567b9ca422eabdc30c44c9c70a03c47"
+url = "https://gitlab.com/meltano/singer-sdk"
+reference = "development"
+resolved_reference = "f486a14182f26bca741bf05799e2aa129f3b9136"
 
 [[package]]
 name = "six"
@@ -504,7 +504,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "27b14ade043a7ef7848cf4a3441779dfe6f3fbc2f4ccecc914302641f76df294"
+content-hash = "1066efaa7da8597a29e6c5004671123e01e0a17f7420a372585dc51b06c61fd0"
 
 [metadata.files]
 appdirs = [

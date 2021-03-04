@@ -7,7 +7,7 @@ license = "Apache v2"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-singer-sdk = {git = "https://gitlab.com/edgarrmondragon/singer-sdk", rev = "build-backend-api"}
+singer-sdk = {git = "https://gitlab.com/meltano/singer-sdk", rev = "development"}
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.2"
