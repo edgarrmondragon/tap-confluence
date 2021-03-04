@@ -1,6 +1,6 @@
 # tap-confluence
 
-Singer tap for the Confluence Content REST API.
+Singer tap for the Confluence Content REST API. Developed using the [Singer SDK][sdk].
 
 ## Configuration
 
@@ -54,5 +54,6 @@ where `simpleConfig.json` is
 - [Confluence API docs][confluence-docs]
 - [Basic Auth for Confluence API][confluence-basic-auth]
 
+[sdk]: https://gitlab.com/meltano/singer-sdk/
 [confluence-docs]: https://developer.atlassian.com/cloud/confluence/rest/intro/
 [confluence-basic-auth]: https://developer.atlassian.com/cloud/confluence/basic-auth-for-rest-apis/
