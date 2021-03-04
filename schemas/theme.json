@@ -1,0 +1,36 @@
+{
+    "definitions": {
+    "icon": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "isDefault": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "themeKey": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "$ref": "#/definitions/icon"
+    }
+  }
+}

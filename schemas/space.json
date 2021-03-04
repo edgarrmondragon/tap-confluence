@@ -1,0 +1,175 @@
+{
+  "definitions": {
+    "icon": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "isDefault": {
+          "type": "boolean"
+        }
+      }
+    },
+    "user": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "accountId": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "publicName": {
+          "type": "string"
+        }
+      }
+    },
+    "group": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": ["string", "null"]
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "operationCheckResult": {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "type": "string"
+        },
+        "targetType": {
+          "type": "string"
+        }
+      }
+    },
+    "spacePermission": {
+      "type": "object",
+      "properties": {
+        "subjects": {
+          "type": "object",
+          "properties": {
+            "user": {
+              "type": "object",
+              "properties": {
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/user"
+                  }
+                }
+              }
+            },
+            "group": {
+              "type": "object",
+              "properties": {
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/group"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operation": {
+          "$ref": "#/definitions/operationCheckResult"
+        },
+        "anonymousAccess": {
+          "type": "boolean"
+        },
+        "unlicensedAccess": {
+          "type": "boolean"
+        }
+      }
+    },
+    "spaceDescription": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "representation": {
+          "type": "string"
+        }
+      }
+    },
+    "description": {
+      "type": "object",
+      "properties": {
+        "plain": {
+          "$ref": "#/definitions/spaceDescription"
+        },
+        "view": {
+          "$ref": "#/definitions/spaceDescription"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "key": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/spacePermission"
+      }
+    },
+    "icon": {
+      "$ref": "#/definitions/icon"
+    },
+    "description": {
+      "$ref": "#/definitions/description"
+    },
+    "_expandable": {
+      "type": "object",
+      "properties": {
+        "homepage": {
+          "type": "string"
+        }
+      }
+    },
+    "_links": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "type": "string"
+        },
+        "webui": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
