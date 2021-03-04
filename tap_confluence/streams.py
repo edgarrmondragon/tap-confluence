@@ -11,23 +11,6 @@ from singer_sdk.authenticators import APIAuthenticatorBase, SimpleAuthenticator
 SCHEMAS_DIR = Path("./schemas")
 
 
-class BasePaginator:
-    def next_page(self, response: requests.Response):
-        raise NotImplementedError
-
-
-class OffsetLimitPaginator(BasePaginator):
-    def __init__(self, limit: int):
-        self.limit = limit
-        self.offset = 1
-
-    def next_page(self, size: int):
-        if size < self.limit:
-            self.offset += self.limit
-        else:
-            raise StopIteration
-
-
 class TapConfluenceStream(RESTStream):
 
     limit: int = 100
