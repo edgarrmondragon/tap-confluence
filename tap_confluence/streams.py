@@ -81,7 +81,7 @@ class TapConfluenceStream(RESTStream):
             if size < limit:
                 break
 
-            start += self.limit
+            start += limit
 
 
 class GroupsStream(TapConfluenceStream):
