@@ -22,17 +22,16 @@ class TapConfluenceStream(RESTStream):
         return self.config.get("base_url")
 
     @property
-    def authenticator(self) -> APIAuthenticatorBase:
+    def http_headers(self) -> dict:
+        result = super().http_headers
+
         email = self.config.get("email")
         api_token = self.config.get("api_token")
         auth = b64encode(f"{email}:{api_token}".encode()).decode()
 
-        http_headers = {"Authorization": f"Basic {auth}"}
+        result["Authorization"] = f"Basic {auth}"
 
-        if self.config.get("user_agent"):
-            http_headers["User-Agent"] = self.config.get("user_agent")
-
-        return SimpleAuthenticator(stream=self, http_headers=http_headers)
+        return result
 
     def get_url_params(self, partition: Optional[dict]) -> Dict[str, Any]:
         return {"limit": self.limit, "expand": ",".join(self.expand)}
