@@ -33,8 +33,12 @@ class TapConfluenceStream(RESTStream):
 
         return result
 
-    def get_url_params(self, partition: dict | None) -> Dict[str, Any]:
-        return {"limit": self.limit, "expand": ",".join(self.expand)}
+    def get_url_params(self, partition: dict | None, next_page_token: int) -> Dict[str, Any]:
+        return {
+            "limit": self.limit,
+            "start": next_page_token,
+            "expand": ",".join(self.expand),
+        }
 
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
         resp_json = response.json()
@@ -44,26 +48,21 @@ class TapConfluenceStream(RESTStream):
             # self.logger.info(row["_links"])
             yield row
 
-    def insert_next_page_token(self, next_page, params) -> Any:
-        params["start"] = next_page
-        return params
+    def get_next_page_token(
+        self,
+        response: requests.Response,
+        previous_token: int | None,
+    ) -> int | None:
 
-    def request_records(self, partition: dict | None) -> Iterable[dict]:
-        start = 0
-        while True:
-            prepared_request = self.prepare_request(partition, next_page_token=start)
-            resp = self._request_with_backoff(prepared_request)
-            for row in self.parse_response(resp):
-                yield row
+        previous_token = previous_token or 1
 
-            data = resp.json()
-            size, limit = data["size"], data["limit"]
-            # self.logger.info(size)
+        data = response.json()
+        size, limit = data["size"], data["limit"]
 
-            if size < limit:
-                break
+        if size < limit:
+            return None
 
-            start += limit
+        return previous_token + limit
 
 
 class GroupsStream(TapConfluenceStream):
@@ -119,8 +118,12 @@ class BaseContentStream(TapConfluenceStream, metaclass=abc.ABCMeta):
         """Content type (page or blogpost)."""
         pass
 
-    def get_url_params(self, partition: dict | None) -> Dict[str, Any]:
-        result = super().get_url_params(partition)
+    def get_url_params(
+        self,
+        partition: dict | None,
+        next_page_token: int | None,
+    ) -> Dict[str, Any]:
+        result = super().get_url_params(partition, next_page_token)
         result["type"] = self.content_type
         return result
 

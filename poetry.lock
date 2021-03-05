@@ -298,7 +298,7 @@ six = ">=1.5"
 
 [[package]]
 name = "pytz"
-version = "2018.4"
+version = "2020.5"
 description = "World timezone definitions, modern and historical"
 category = "main"
 optional = false
@@ -348,7 +348,7 @@ python-versions = "*"
 
 [[package]]
 name = "singer-sdk"
-version = "0.0.2.dev1079291315"
+version = "0.0.2.dev1084532257"
 description = "An open framework for building singer-compliant taps"
 category = "main"
 optional = false
@@ -437,7 +437,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pyt
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "0b8649af1dcea44f1a971433d40b0557ce8bdbebb8dd3c36d3fda9009fca1e94"
+content-hash = "ef21e13a7cc434e0241a655a539551903b9dd4f0dddbef37b342d562080e7e53"
 
 [metadata.files]
 appdirs = [
@@ -669,8 +669,8 @@ python-dateutil = [
     {file = "python_dateutil-2.8.0-py2.py3-none-any.whl", hash = "sha256:7e6584c74aeed623791615e26efd690f29817a27c73085b78e4bad02493df2fb"},
 ]
 pytz = [
-    {file = "pytz-2018.4-py2.py3-none-any.whl", hash = "sha256:65ae0c8101309c45772196b21b74c46b2e5d11b6275c45d251b150d5da334555"},
-    {file = "pytz-2018.4.tar.gz", hash = "sha256:c06425302f2cf668f1bba7a0a03f3c1d34d4ebeef2c72003da308b3947c7f749"},
+    {file = "pytz-2020.5-py2.py3-none-any.whl", hash = "sha256:16962c5fb8db4a8f63a26646d8886e9d769b6c511543557bc84e9569fb9a9cb4"},
+    {file = "pytz-2020.5.tar.gz", hash = "sha256:180befebb1927b16f6b57101720075a984c019ac16b1b7575673bea42c6c3da5"},
 ]
 pytzdata = [
     {file = "pytzdata-2020.1-py2.py3-none-any.whl", hash = "sha256:e1e14750bcf95016381e4d472bad004eef710f2d6417240904070b3d6654485f"},
@@ -743,8 +743,8 @@ simplejson = [
     {file = "simplejson-3.11.1.win32-py3.5.exe", hash = "sha256:c76d55d78dc8b06c96fd08c6cc5e2b0b650799627d3f9ca4ad23f40db72d5f6d"},
 ]
 singer-sdk = [
-    {file = "singer-sdk-0.0.2.dev1079291315.tar.gz", hash = "sha256:7ec1fdd4397e4c8179efebc28cc02394f036002b0bec076f4193af15a1445f64"},
-    {file = "singer_sdk-0.0.2.dev1079291315-py3-none-any.whl", hash = "sha256:2e9e9d886211d6605f39e7f1f7c687f26c658d61affe7046922f7107fe8f2a65"},
+    {file = "singer-sdk-0.0.2.dev1084532257.tar.gz", hash = "sha256:0973af48b235278a975591aed507e2c29035c1af6128c373b0765e0fd4b0e9a7"},
+    {file = "singer_sdk-0.0.2.dev1084532257-py3-none-any.whl", hash = "sha256:fe275be7b9399eed249822ddf12ea1078b8427ea516141f6a1b6e6510e6bc583"},
 ]
 six = [
     {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},
