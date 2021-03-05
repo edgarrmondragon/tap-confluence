@@ -5,8 +5,6 @@ from typing import Any, Dict, Iterable, Optional
 import requests
 
 from singer_sdk.streams import RESTStream
-from singer_sdk.authenticators import APIAuthenticatorBase, SimpleAuthenticator
-
 
 SCHEMAS_DIR = Path("./schemas")
 
