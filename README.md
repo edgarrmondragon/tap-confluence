@@ -1,6 +1,14 @@
 # tap-confluence
 
-Singer tap for the Confluence Content REST API. Developed using the [Singer SDK][sdk].
+Singer tap for the Confluence REST API. Developed using the [Singer SDK][sdk].
+
+## Roadmap
+
+- [x] Content
+- [x] Spaces
+- [x] Themes
+- [x] Groups
+- [ ] Users
 
 ## Configuration
 
@@ -49,7 +57,7 @@ where `simpleConfig.json` is
 }
 ```
 
-### Links
+## Links
 
 - [Confluence API docs][confluence-docs]
 - [Basic Auth for Confluence API][confluence-basic-auth]
