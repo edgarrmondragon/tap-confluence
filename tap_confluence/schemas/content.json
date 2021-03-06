@@ -137,9 +137,6 @@
         },
         "previousVersion": {
           "$ref": "#/definitions/version"
-        },
-        "nextVersion": {
-          "$ref": "#/definitions/version"
         }
       }
     },

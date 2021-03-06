@@ -107,7 +107,6 @@ class ContentStream(TapConfluenceStream):
         "history.lastUpdated",
         "history.previousVersion",
         "history.contributors",
-        "history.nextVersion",
         "restrictions.read.restrictions.user",
         "version",
         "descendants.comment",
