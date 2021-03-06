@@ -6,7 +6,7 @@ import requests
 
 from singer_sdk.streams import RESTStream
 
-SCHEMAS_DIR = Path("./schemas")
+SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 
 
 class TapConfluenceStream(RESTStream):
