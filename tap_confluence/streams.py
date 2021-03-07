@@ -47,7 +47,7 @@ class TapConfluenceStream(RESTStream):
         return params
 
     def request_records(self, partition: Optional[dict]) -> Iterable[dict]:
-        start = 1
+        start = 0
         while True:
             prepared_request = self.prepare_request(partition, next_page_token=start)
             resp = self._request_with_backoff(prepared_request)
