@@ -53,7 +53,7 @@ where `simpleConfig.json` is
 {
     "resources": [
         "spaces",
-        "content",
+        "blogposts",
         "themes",
         "groups"
     ]
