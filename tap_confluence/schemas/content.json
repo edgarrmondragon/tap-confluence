@@ -4,16 +4,16 @@
       "type": "object",
       "properties": {
         "type": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "accountId": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "email": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "publicName": {
-          "type": "string"
+          "type": ["string", "null"]
         }
       }
     },
@@ -38,7 +38,7 @@
       "type": "object",
       "properties": {
         "operations": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "restrictions": {
           "user": {
@@ -79,20 +79,20 @@
           "$ref": "#/definitions/user"
         },
         "when": {
-          "type": "string",
+          "type": ["string", "null"],
           "format": "date-time"
         },
         "friendlyWhen": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "message": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "number": {
-          "type": "integer"
+          "type": ["integer", "null"]
         },
         "minorEdit": {
-          "type": "boolean"
+          "type": ["boolean", "null"]
         },
         "collaborators": {
           "$ref": "#/definitions/usersUserKeys"
