@@ -98,7 +98,7 @@ class ThemesStream(TapConfluenceStream):
     ]
 
 
-class ContentStream(TapConfluenceStream, metaclass=abc.ABCMeta):
+class BaseContentStream(TapConfluenceStream, metaclass=abc.ABCMeta):
     path = "/content"
     primary_keys = ["id"]
     schema_filepath = SCHEMAS_DIR / "content.json"
@@ -125,11 +125,11 @@ class ContentStream(TapConfluenceStream, metaclass=abc.ABCMeta):
         return result
 
 
-class BlogpostsStream(ContentStream):
+class BlogpostsStream(BaseContentStream):
     name = "pages"
     content_type = "page"
 
 
-class PagesStream(ContentStream):
+class PagesStream(BaseContentStream):
     name = "blogposts"
     content_type = "blogpost"
