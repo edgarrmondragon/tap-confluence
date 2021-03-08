@@ -2,12 +2,7 @@ from __future__ import annotations
 
 from base64 import b64encode
 from pathlib import Path
-from typing import (
-    Any,
-    Dict,
-    Iterable,
-    List,
-)
+from typing import Any, Dict, Iterable, List
 
 import requests
 from singer_sdk.streams import RESTStream
