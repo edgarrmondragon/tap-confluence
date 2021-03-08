@@ -28,5 +28,5 @@ jobs:
         TAP_CONFLUENCE_base_url: ${{ secrets.CONFLUENCE_BASE_URL }}
         TAP_CONFLUENCE_email: ${{ secrets.CONFLUENCE_EMAIL }}
         TAP_CONFLUENCE_api_token: ${{ secrets.CONFLUENCE_API_TOKEN }}
-        TAP_CONFLUENCE_resources: '["spaces", "pages", "blogposts", "themes", "groups"]'
+        TAP_CONFLUENCE_resources: '[spaces, pages, blogposts, themes, groups]'
       run: poetry run tap-confluence | poetry run singer-check-tap
