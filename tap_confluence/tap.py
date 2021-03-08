@@ -1,11 +1,11 @@
 from typing import List
 
-from singer_sdk.tap_base import Tap
 from singer_sdk.helpers.typing import (
     ArrayType,
     PropertiesList,
     StringType,
 )
+from singer_sdk.tap_base import Tap
 
 from tap_confluence.streams import (
     ContentStream,
