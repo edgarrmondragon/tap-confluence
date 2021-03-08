@@ -24,9 +24,22 @@ jobs:
       run: poetry install
 
     - name: Check Tap Output
+      id: check-tap-output
       env:
         TAP_CONFLUENCE_base_url: ${{ secrets.CONFLUENCE_BASE_URL }}
         TAP_CONFLUENCE_email: ${{ secrets.CONFLUENCE_EMAIL }}
         TAP_CONFLUENCE_api_token: ${{ secrets.CONFLUENCE_API_TOKEN }}
         TAP_CONFLUENCE_resources: '[spaces, pages, blogposts, themes, groups]'
-      run: poetry run tap-confluence | poetry run singer-check-tap
+      run: echo "::set-output name=check-result::$(poetry run tap-confluence | poetry run singer-check-tap)"
+
+    - name: Comment on PR
+      uses: actions/github-script@v3
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          github.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: '${{ steps.check-tap-output.outputs.check-result }}',
+          })
