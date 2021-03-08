@@ -10,8 +10,8 @@ python = "^3.7"
 singer-sdk = {git = "https://gitlab.com/meltano/singer-sdk", rev = "development"}
 
 [tool.poetry.dev-dependencies]
-pytest = "^6.2.2"
 black = "^20.8b1"
+singer-tools = "^0.4.1"
 
 [tool.poetry.scripts]
 tap-confluence = 'tap_confluence.tap:cli'
