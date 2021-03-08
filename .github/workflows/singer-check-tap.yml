@@ -20,6 +20,9 @@ jobs:
     - name: Install Poetry
       run: pip install poetry==1.1.5
 
+    - name: Install Dependencies
+      run: poetry install
+
     - name: Check Tap Output
       env:
         TAP_CONFLUENCE_base_url: ${{ secrets.CONFLUENCE_BASE_URL }}
