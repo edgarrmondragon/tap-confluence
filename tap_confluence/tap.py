@@ -1,11 +1,7 @@
 from typing import List
 
+from singer_sdk.helpers.typing import ArrayType, PropertiesList, StringType
 from singer_sdk.tap_base import Tap
-from singer_sdk.helpers.typing import (
-    ArrayType,
-    PropertiesList,
-    StringType,
-)
 
 from tap_confluence.streams import (
     ContentStream,
@@ -39,9 +35,7 @@ class TapConfluence(Tap):
     def discover_streams(self) -> List:
         """Return a list of discovered streams."""
         return [
-            stream(tap=self)
-            for stream in STREAM_TYPES
-            if stream.name in self.config["resources"]
+            stream(tap=self) for stream in STREAM_TYPES if stream.name in self.config["resources"]
         ]
 
 

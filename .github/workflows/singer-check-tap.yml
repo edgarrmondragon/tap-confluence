@@ -1,0 +1,48 @@
+name: Singer-Check-Tap
+
+on: pull_request
+
+jobs:
+  check-tap:
+    name: Check Tap
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.7'
+        architecture: x64
+
+    - name: Install Poetry
+      run: pip install poetry==1.1.5
+
+    - name: Install Dependencies
+      run: poetry install
+
+    - name: Check Tap Output
+      id: check-tap-output
+      env:
+        TAP_CONFLUENCE_base_url: ${{ secrets.CONFLUENCE_BASE_URL }}
+        TAP_CONFLUENCE_email: ${{ secrets.CONFLUENCE_EMAIL }}
+        TAP_CONFLUENCE_api_token: ${{ secrets.CONFLUENCE_API_TOKEN }}
+        TAP_CONFLUENCE_resources: '[spaces,pages,blogposts,themes,groups]'
+      run: |
+        result=$(poetry run tap-confluence | poetry run singer-check-tap)
+        result="${result//'%'/'%25'}"
+        result="${result//$'\n'/'%0A'}"
+        result="${result//$'\r'/'%0D'}"
+        echo "::set-output name=check-result::$result"
+
+    - name: Comment on PR
+      uses: marocchino/sticky-pull-request-comment@v2
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        header: singer-check-tap
+        message: |
+          ```
+          ${{ steps.check-tap-output.outputs.check-result }}
+          ````

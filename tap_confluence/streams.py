@@ -1,9 +1,10 @@
+from __future__ import annotations
+
 from base64 import b64encode
 from pathlib import Path
-from typing import Any, Dict, Iterable, Optional
+from typing import Any, Dict, Iterable, List
 
 import requests
-
 from singer_sdk.streams import RESTStream
 
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
@@ -12,7 +13,7 @@ SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 class TapConfluenceStream(RESTStream):
 
     limit: int = 100
-    expand = []
+    expand: List[str] = []
 
     @property
     def url_base(self) -> str:
@@ -31,7 +32,7 @@ class TapConfluenceStream(RESTStream):
 
         return result
 
-    def get_url_params(self, partition: Optional[dict]) -> Dict[str, Any]:
+    def get_url_params(self, partition: dict | None) -> Dict[str, Any]:
         return {"limit": self.limit, "expand": ",".join(self.expand)}
 
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
@@ -46,7 +47,7 @@ class TapConfluenceStream(RESTStream):
         params["start"] = next_page
         return params
 
-    def request_records(self, partition: Optional[dict]) -> Iterable[dict]:
+    def request_records(self, partition: dict | None) -> Iterable[dict]:
         start = 0
         while True:
             prepared_request = self.prepare_request(partition, next_page_token=start)
