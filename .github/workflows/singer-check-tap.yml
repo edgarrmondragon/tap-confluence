@@ -1,6 +1,6 @@
 name: Singer-Check-Tap
 
-on: push
+on: pull_request
 
 jobs:
   check-tap:
@@ -38,7 +38,7 @@ jobs:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
           github.issues.createComment({
-            issue_number: context.issue.number,
+            issue_number: context.payload.pull_request.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
             body: '${{ steps.check-tap-output.outputs.check-result }}',
