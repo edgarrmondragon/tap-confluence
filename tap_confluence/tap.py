@@ -39,9 +39,7 @@ class TapConfluence(Tap):
     def discover_streams(self) -> List:
         """Return a list of discovered streams."""
         return [
-            stream(tap=self)
-            for stream in STREAM_TYPES
-            if stream.name in self.config["resources"]
+            stream(tap=self) for stream in STREAM_TYPES if stream.name in self.config["resources"]
         ]
 
 
