@@ -1,0 +1,29 @@
+name: Singer-Check-Tap
+
+on: push
+
+jobs:
+  check-tap:
+    name: Check Tap
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.7'
+        architecture: x64
+
+    - name: Install Poetry
+      run: pip install poetry==1.1.5
+
+    - name: Check Tap Output
+      env:
+        TAP_CONFLUENCE_base_url: ${{ secrets.CONFLUENCE_BASE_URL }}
+        TAP_CONFLUENCE_email: ${{ secrets.CONFLUENCE_EMAIL }}
+        TAP_CONFLUENCE_api_token: ${{ secrets.CONFLUENCE_API_TOKEN }}
+        TAP_CONFLUENCE_resources: '["spaces", "pages", "blogposts", "themes", "groups"]'
+      run: poetry run tap-confluence | poetry run singer-check-tap
