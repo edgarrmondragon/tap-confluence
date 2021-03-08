@@ -42,4 +42,7 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         header: singer-check-tap
-        message: ${{ steps.check-tap-output.outputs.check-result }}
+        message: |
+          ```
+          ${{ steps.check-tap-output.outputs.check-result }}
+          ````
