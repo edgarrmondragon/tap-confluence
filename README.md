@@ -1,6 +1,6 @@
 # tap-confluence
 
-[![GitHub Super-Linter](https://github.com/edgarrmondragon/tap-confluence/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![Super-Linter](https://github.com/edgarrmondragon/tap-confluence/actions/workflows/superlinter.yml/badge.svg)](https://github.com/edgarrmondragon/tap-confluence/actions/workflows/superlinter.yml)
 
 Singer tap for the Confluence REST API. Developed using the [Singer SDK][sdk].
 
