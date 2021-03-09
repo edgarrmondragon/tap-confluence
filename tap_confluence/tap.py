@@ -4,8 +4,9 @@ from singer_sdk.helpers.typing import ArrayType, PropertiesList, StringType
 from singer_sdk.tap_base import Tap
 
 from tap_confluence.streams import (
-    ContentStream,
+    BlogpostsStream,
     GroupsStream,
+    PagesStream,
     SpacesStream,
     ThemesStream,
 )
@@ -13,8 +14,9 @@ from tap_confluence.streams import (
 PLUGIN_NAME = "tap-confluence"
 
 STREAM_TYPES = [
+    BlogpostsStream,
+    PagesStream,
     GroupsStream,
-    ContentStream,
     SpacesStream,
     ThemesStream,
 ]

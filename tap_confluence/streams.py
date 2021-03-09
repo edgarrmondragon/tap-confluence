@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import abc
 from base64 import b64encode
 from pathlib import Path
 from typing import Any, Dict, Iterable, List
@@ -97,8 +98,7 @@ class ThemesStream(TapConfluenceStream):
     ]
 
 
-class ContentStream(TapConfluenceStream):
-    name = "content"
+class BaseContentStream(TapConfluenceStream, metaclass=abc.ABCMeta):
     path = "/content"
     primary_keys = ["id"]
     schema_filepath = SCHEMAS_DIR / "content.json"
@@ -112,3 +112,24 @@ class ContentStream(TapConfluenceStream):
         "version",
         "descendants.comment",
     ]
+
+    @property
+    @abc.abstractmethod
+    def content_type(self) -> str:
+        """Content type (page or blogpost)."""
+        pass
+
+    def get_url_params(self, partition: dict | None) -> Dict[str, Any]:
+        result = super().get_url_params(partition)
+        result["type"] = self.content_type
+        return result
+
+
+class BlogpostsStream(BaseContentStream):
+    name = "pages"
+    content_type = "page"
+
+
+class PagesStream(BaseContentStream):
+    name = "blogposts"
+    content_type = "blogpost"

@@ -29,7 +29,8 @@ where `config.json` is
     "api_token": "<your_user_api_token>",
     "resources": [
         "spaces",
-        "content",
+        "pages",
+        "blogposts",
         "groups"
     ]
 }
@@ -52,7 +53,7 @@ where `simpleConfig.json` is
 {
     "resources": [
         "spaces",
-        "content",
+        "blogposts",
         "themes",
         "groups"
     ]
