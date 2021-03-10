@@ -33,7 +33,11 @@ class TapConfluenceStream(RESTStream):
 
         return result
 
-    def get_url_params(self, partition: dict | None, next_page_token: int) -> Dict[str, Any]:
+    def get_url_params(
+        self,
+        partition: dict | None,
+        next_page_token: int | None,
+    ) -> Dict[str, Any]:
         return {
             "limit": self.limit,
             "start": next_page_token,
