@@ -7,7 +7,7 @@ license = "Apache v2"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-singer-sdk = "0.0.2.dev1079291315"
+singer-sdk = "0.0.2.dev1084532257"
 importlib-metadata = {version = "^3.7.2", python = "<3.8"}
 
 [tool.poetry.dev-dependencies]
