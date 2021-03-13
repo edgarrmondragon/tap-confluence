@@ -29,7 +29,7 @@ jobs:
         TAP_CONFLUENCE_base_url: ${{ secrets.CONFLUENCE_BASE_URL }}
         TAP_CONFLUENCE_email: ${{ secrets.CONFLUENCE_EMAIL }}
         TAP_CONFLUENCE_api_token: ${{ secrets.CONFLUENCE_API_TOKEN }}
-        TAP_CONFLUENCE_resources: '[spaces,pages,blogposts,themes,groups]'
+        TAP_CONFLUENCE_user_agent: 'tap-confluence/0.0.1 Singer.io Tap for Confluence (https://github.com/edgarrmondragon/tap-confluence)'
       run: |
         result=$(poetry run tap-confluence | poetry run singer-check-tap)
         result="${result//'%'/'%25'}"

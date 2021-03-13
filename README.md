@@ -27,12 +27,7 @@ where `config.json` is
     "base_url": "https://your-domain.atlassian.net/wiki/rest/api",
     "email": "<your_email@domain.com>",
     "api_token": "<your_user_api_token>",
-    "resources": [
-        "spaces",
-        "pages",
-        "blogposts",
-        "groups"
-    ]
+    "user_agent": "MyDataIntegrationApp/1.0.0 Singer.io Tap for Confluence"
 }
 ```
 
@@ -51,12 +46,7 @@ where `simpleConfig.json` is
 
 ```json
 {
-    "resources": [
-        "spaces",
-        "blogposts",
-        "themes",
-        "groups"
-    ]
+    "user_agent": "MyDataIntegrationApp/1.0.0 Singer.io Tap for Confluence"
 }
 ```
 
