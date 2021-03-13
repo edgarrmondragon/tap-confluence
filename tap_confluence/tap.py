@@ -1,6 +1,6 @@
 from typing import List
 
-from singer_sdk.helpers.typing import PropertiesList, StringType
+from singer_sdk.helpers.typing import PropertiesList, Property, StringType
 from singer_sdk.tap_base import Tap
 
 from tap_confluence.streams import (
@@ -27,9 +27,10 @@ class TapConfluence(Tap):
 
     name = "tap-confluence"
     config_jsonschema = PropertiesList(
-        StringType("base_url", required=True),
-        StringType("email", required=True),
-        StringType("api_token", required=True),
+        Property("base_url", StringType, required=True),
+        Property("email", StringType, required=True),
+        Property("api_token", StringType, required=True),
+        Property("user_agent", StringType),
     ).to_dict()
 
     def discover_streams(self) -> List:
