@@ -6,8 +6,8 @@ authors = ["Edgar Ramírez Mondragón <edgarrm358@gmail.com>"]
 license = "Apache v2"
 
 [tool.poetry.dependencies]
-python = "^3.7"
-singer-sdk = "0.0.2.dev1084532257"
+python = ">=3.7,<3.9"
+singer-sdk = "0.0.2.dev1132353840"
 importlib-metadata = {version = "^3.7.2", python = "<3.8"}
 
 [tool.poetry.dev-dependencies]
