@@ -7,7 +7,7 @@ license = "Apache v2"
 
 [tool.poetry.dependencies]
 python = ">=3.7,<3.9"
-singer-sdk = "0.0.2.dev1132923306"
+singer-sdk = "0.1.0.dev1141413112"
 
 [tool.poetry.dev-dependencies]
 black = "^20.8b1"
