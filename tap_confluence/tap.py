@@ -1,7 +1,7 @@
 from typing import List
 
-from singer_sdk.helpers.typing import PropertiesList, Property, StringType
 from singer_sdk.tap_base import Tap
+from singer_sdk.typing import PropertiesList, Property, StringType
 
 from tap_confluence.streams import (
     BlogpostsStream,
