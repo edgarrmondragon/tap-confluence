@@ -33,7 +33,7 @@ pipx install git+https://github.com/edgarrmondragon/tap-confluence.git
 
 ### Initialize your Development Environment
 
-You will [Poetry](https://python-poetry.org/docs/#installation) installed on your machine.
+You will need [Poetry](https://python-poetry.org/docs/#installation) installed on your machine.
 
 ```bash
 # Install package dependencies
