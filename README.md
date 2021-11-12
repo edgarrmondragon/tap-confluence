@@ -4,6 +4,12 @@
 
 Singer tap for the Confluence REST API. Developed using the [Singer SDK][sdk].
 
+## Installation
+
+```bash
+pipx install git+https://github.com/edgarrmondragon/tap-confluence.git
+```
+
 ## Roadmap
 
 - [x] Content
@@ -14,14 +20,6 @@ Singer tap for the Confluence REST API. Developed using the [Singer SDK][sdk].
 
 ## Configuration
 
-### Using JSON
-
-```shell
-tap-confluence --config config.json
-```
-
-where `config.json` is
-
 ```json
 {
     "base_url": "https://your-domain.atlassian.net/wiki/rest/api",
@@ -31,23 +29,18 @@ where `config.json` is
 }
 ```
 
-### Using environment variables
+## Developer Resources
 
-They can be used together with JSON configuration:
+### Initialize your Development Environment
 
-```shell
-TAP_CONFLUENCE_base_url=https://your-domain.atlassian.net/wiki/rest/api \
-TAP_CONFLUENCE_email=<your_email@domain.com> \
-TAP_CONFLUENCE_api_token=<your_user_api_token> \
-tap-confluence --config simpleConfig.json
-```
+You will [Poetry](https://python-poetry.org/docs/#installation) installed on your machine.
 
-where `simpleConfig.json` is
+```bash
+# Install package dependencies
+poetry install
 
-```json
-{
-    "user_agent": "MyDataIntegrationApp/1.0.0 Singer.io Tap for Confluence"
-}
+# Extract records
+poetry run tap-confluence --config config.json
 ```
 
 ## Links
