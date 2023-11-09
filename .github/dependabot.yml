@@ -8,10 +8,14 @@ updates:
   - package-ecosystem: "pip" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
-      interval: "daily"
-      time: "05:11"
+      interval: "weekly"
+      time: "07:00"
       timezone: "America/Mexico_City"
     reviewers:
       - "edgarrmondragon"
     labels:
       - "dependencies"
+    commit-message:
+      prefix: "feat(deps): "
+      prefix-development: "chore(deps-dev): "
+    versioning-strategy: increase-if-necessary
